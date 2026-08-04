@@ -1,4 +1,24 @@
 services:
+  frontend:
+    image: ecommerce-frontend
+    container_name: ecommerce-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  backend:
+    image: ecommerce-backend
+    container_name: ecommerce-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+    depends_on:
+      - db
+
   db:
     image: postgres:16
     container_name: ecommerce-postgres
