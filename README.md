@@ -58,7 +58,7 @@ Reset the database (removes all local data):
 
 ```bash
 docker compose down -v
-docker compose up -d
+docker compose up --build -d
 ```
 
 The PostgreSQL database container is created automatically by Docker using the values defined in `.env`.
