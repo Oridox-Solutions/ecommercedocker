@@ -26,21 +26,30 @@ Expected repository structure:
 
 ```text
 E-CommerceTemplate/
-├── Backend/
-│   └── ecommercetemplatebackend/
-│       ├── Dockerfile
-│       └── package.json
+├── ecommercetemplatebackend/
+│   ├── Dockerfile
+│   └── package.json
 │
-├── Frontend/
-│   └── ecommercetemplatefrontend/
-│       ├── Dockerfile
-│       └── package.json
+├── ecommercetemplatefrontend/
+│   ├── Dockerfile
+│   └── package.json
 │
-└── Docker/
-    └── ecommercedocker/
-        ├── docker-compose.yml
-        └── .env
+└── ecommercedocker/
+    ├── docker-compose.yml
+    └── .env
 ```
+
+The docker-compose.yml file is located inside:
+
+E-CommerceTemplate/ecommercesite/ecommercedocker/
+
+Therefore Docker uses relative paths to access the frontend and backend repositories:
+
+Frontend:
+../Frontend/ecommercetemplatefrontend
+
+Backend:
+../Backend/ecommercetemplatebackend
 
 ## Environment Variables
 
@@ -146,3 +155,50 @@ Exit PostgreSQL:
 ```sql
 \q
 ```
+
+Enter the backend container:
+
+```bash
+docker exec -it ecommerce-backend sh
+```
+
+Enter the frontend container:
+
+```bash
+docker exec -it ecommerce-frontend sh
+```
+
+Exit a container shell:
+
+```
+exit
+```
+
+Once inside:
+
+Backend example:
+
+```bash
+# inside ecommerce-backend
+npm run build
+npx prisma migrate status
+npx prisma generate
+```
+
+Frontend example:
+
+```bash
+# inside ecommerce-frontend
+npm run build
+npm run lint
+```
+
+You can also view logs for each service individually:
+
+```bash
+docker logs ecommerce-backend
+docker logs ecommerce-frontend
+docker logs ecommerce-postgres
+```
+
+
