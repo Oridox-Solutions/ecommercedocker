@@ -1,5 +1,7 @@
 services:
   frontend:
+    build:
+      context: ../ecommercetemplatefrontend
     image: ecommerce-frontend
     container_name: ecommerce-frontend
     restart: unless-stopped
@@ -7,11 +9,13 @@ services:
       - "5173:5173"
     volumes:
       - ../ecommercetemplatefrontend:/app
-      - frontend-node-modules:/app/node_modules  
+      - frontend-node-modules:/app/node_modules
     depends_on:
       - backend
 
   backend:
+    build:
+      context: ../ecommercetemplatebackend
     image: ecommerce-backend
     container_name: ecommerce-backend
     restart: unless-stopped

@@ -20,3 +20,14 @@ docker-compose.override.yml
 # Temporary files
 *.tmp
 *.temp
+
+# Docker build cache / build context leftovers
+node_modules/
+
+# Docker volume data mounted locally 
+postgres-data/
+pgdata/
+
+# Editor/OS swap files
+*.swp
+*~
