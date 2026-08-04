@@ -16,6 +16,32 @@ Services include:
 
 - Docker Desktop
 
+## Development Setup
+
+The Docker development environment uses relative volume mounts to allow hot reloading during development.
+
+The repository structure must remain consistent so Docker can correctly locate the frontend and backend projects.
+
+Expected repository structure:
+
+```text
+E-CommerceTemplate/
+├── Backend/
+│   └── ecommercetemplatebackend/
+│       ├── Dockerfile
+│       └── package.json
+│
+├── Frontend/
+│   └── ecommercetemplatefrontend/
+│       ├── Dockerfile
+│       └── package.json
+│
+└── Docker/
+    └── ecommercedocker/
+        ├── docker-compose.yml
+        └── .env
+```
+
 ## Environment Variables
 
 Create a local environment file:

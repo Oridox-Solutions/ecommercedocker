@@ -5,6 +5,9 @@ services:
     restart: unless-stopped
     ports:
       - "5173:5173"
+    volumes:
+      - ../../Frontend/ecommercetemplatefrontend:/app
+      - frontend-node-modules:/app/node_modules  
     depends_on:
       - backend
 
@@ -16,6 +19,9 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+    volumes:
+      - ../../Backend/ecommercetemplatebackend:/app
+      - backend-node-modules:/app/node_modules
     depends_on:
       - db
 
@@ -34,3 +40,5 @@ services:
 
 volumes:
   postgres-data:
+  frontend-node-modules:
+  backend-node-modules:
