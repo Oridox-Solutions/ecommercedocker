@@ -71,6 +71,12 @@ The .env file is ignored by Git and should never be committed.
 
 ## Running the Application
 
+Clean build:
+
+```bash
+docker compose build --no-cache
+```
+
 Build and start all services:
 
 ```bash
@@ -108,6 +114,10 @@ Backend:
 
 http://localhost:3000
 
+Database:
+
+http://localhost:5555
+
 Health check:
 
 http://localhost:3000/health
@@ -136,6 +146,12 @@ Enter the PostgreSQL shell:
 
 ```bash
 docker exec -it ecommerce-postgres psql -U <username> -d ecommerce
+```
+
+PostgreSQL UI:
+
+```bash
+docker exec -it ecommerce-backend npx prisma studio
 ```
 
 List databases:
