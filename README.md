@@ -48,10 +48,10 @@ E-CommerceTemplate/ecommercedocker/
 Therefore Docker uses relative paths to access the frontend and backend repositories:
 
 Frontend:
-../Frontend/ecommercetemplatefrontend
+../ecommercetemplatefrontend
 
 Backend:
-../Backend/ecommercetemplatebackend
+../ecommercetemplatebackend
 
 ## Environment Variables
 
@@ -116,7 +116,7 @@ Backend:
 
 http://localhost:3000
 
-Database:
+Prisma Studio (Database UI):
 
 http://localhost:5555
 
@@ -150,7 +150,7 @@ Enter the PostgreSQL shell:
 docker exec -it ecommerce-postgres psql -U <username> -d ecommerce
 ```
 
-PostgreSQL UI:
+Prisma Studio (Database UI):
 
 ```bash
 docker exec -it ecommerce-backend npx prisma studio
