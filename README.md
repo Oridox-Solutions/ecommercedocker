@@ -15,6 +15,8 @@ Services include:
 ## Requirements
 
 - Docker Desktop
+- Git
+- Access to Repositories
 
 ## Development Setup
 
@@ -41,7 +43,7 @@ E-CommerceTemplate/
 
 The docker-compose.yml file is located inside:
 
-E-CommerceTemplate/ecommercesite/ecommercedocker/
+E-CommerceTemplate/ecommercedocker/
 
 Therefore Docker uses relative paths to access the frontend and backend repositories:
 
